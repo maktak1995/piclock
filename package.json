@@ -1,0 +1,11 @@
+{
+  "name": "piclock",
+  "version": "0.0.4",
+  "description": "add yukarin reaction",
+  "main": "index.js",
+  "scripts": {
+    "build": "node_modules/.bin/electron ."
+  },
+  "author": "MakTak",
+  "license": "ISC"
+}
