@@ -25,6 +25,7 @@ img[9].src=  "img/sub9.png";
 img[10] = new Image();
 img[10].src=  "img/sub10.png";
 
+
 //時報の必要があるかチェック
 IMGjihou();
 
@@ -33,6 +34,9 @@ function changeIMG(num){
   document.getElementById("pict").src=img[num].src;
 }
 
+function resetIMG(){
+  changeIMG(0);
+}
 function changeIMGclick(){
   //画像番号を進める
   if (cnt1 == 2)
@@ -41,13 +45,17 @@ function changeIMGclick(){
   { cnt1++; }
   //画像を切り替える
   changeIMG(cnt1);
+  //切り替わって10秒でもとのゆかりさんにする
+  setTimeout(resetIMG, 5000);
 }
 
 function IMGjihou(){
   var t = new Date(); //現在時刻を取得
   var hour = t.getHours();
   var minute = t.getMinutes();
-  if(minute == 0){
+  var second = t.getSeconds();
+
+  if(minute == 0 && second <= 20){
     if(hour==2 || hour==5 || hour==22)
     {changeIMG(1);}
     if(hour==8 || hour==12 || hour==15)
