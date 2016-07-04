@@ -1,5 +1,3 @@
-var cnt1=0;//画像番号用のグローバル変数
-
 /*-----------------------画像セット-----------------------*/
 var img = new Array();
 img[0] = new Image();
@@ -36,17 +34,6 @@ function changeIMG(num){
 
 function resetIMG(){
   changeIMG(0);
-}
-function changeIMGclick(){
-  //画像番号を進める
-  if (cnt1 == 2)
-  { cnt1=0; }
-  else
-  { cnt1++; }
-  //画像を切り替える
-  changeIMG(cnt1);
-  //切り替わって10秒でもとのゆかりさんにする
-  setTimeout(resetIMG, 5000);
 }
 
 function IMGjihou(){

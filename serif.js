@@ -1,4 +1,6 @@
-var cnt2=0;//セリフ切り替え用グローバル変数
+var cnt=0;//セリフ切り替え用グローバル変数
+var click=0;//クリック判定用フラグ
+var rnd;//click時のリアクション用変数
 
 /*----------------------セリフセット----------------------*/
 var text = new Array();//通常
@@ -7,7 +9,7 @@ text[1] = 'マスター、暇です。';
 text[2] = '今何時？上見てくださいよ。';
 text[3] = 'ゲームとかしません？';
 text[4] = '忙しそうですね。';
-text[5] = ' ';
+text[5] = 'コーヒーでもいかがです?';
 
 var zihou = new Array(); //時報
 zihou[0] = '0時です。日付変わりましたよ。もう寝たらいかがです?';//sub3
@@ -35,6 +37,11 @@ zihou[21] = '21時です。くそぅ...マスター強いですね...';//sub4
 zihou[22] = '22時です。そろそろよいこは寝る時間ですね。';//sub1
 zihou[23] = '23時です。こんな時間まで起きてるなんて、マスターは悪い子ですね。';//sub7
 
+var reaction = new Array();
+reaction[0] = '私の顔になにかついてます?';//sub6
+reaction[1] = 'どうかしましたか?';//sub9
+reaction[2] = 'ゲームの邪魔しないでもらえます?';//sub3
+reaction[3] = '仕事してください。';//sub8
 
 
 serif();
@@ -49,16 +56,17 @@ function serif () {
     //セリフを更新
     updateSerifText();
   }
-  setTimeout(serif, 10000);
+  if(click==0)
+  {setTimeout(serif, 10000);}
 }
 
 function updateSerifText(){
-  document.getElementById("yukarin_serif").innerHTML = text[cnt2];
+  document.getElementById("yukarin_serif").innerHTML = text[cnt];
   //セリフ番号を進める
-  if (cnt2 == 4)
-  { cnt2=1; }
+  if (cnt == 5)
+  { cnt=1; }
   else
-  { cnt2++; }
+  { cnt++; }
 }
 
 function serifJihou(){
@@ -71,4 +79,27 @@ function serifJihou(){
   // 次の「0ミリ秒」に実行されるよう、次の描画処理を予約
   var delay = 1000 - new Date().getMilliseconds();
   setTimeout(serifJihou, delay);
+}
+
+//click時のイベント処理
+function Click(){
+  click=1;
+  rnd = Math.floor(Math.random()*4);
+  document.getElementById("yukarin_serif").innerHTML = reaction[rnd];
+  if (rnd==0)
+  {changeIMG(6)}
+  if (rnd==1)
+  {changeIMG(9)}
+  if (rnd==2)
+  {changeIMG(3)}
+  if (rnd==3)
+  {changeIMG(8)}
+  //切り替わって5秒でもとのゆかりさんにする
+  setTimeout(resetIMG, 5000);
+  setTimeout(serif,5000);
+  setTimeout(clickReset,5000);
+}
+
+function clickReset(){
+  click=0;
 }
