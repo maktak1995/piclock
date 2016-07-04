@@ -13,6 +13,9 @@ serif();//セリフを表示
 IMGjihou();
 serifJihou();
 
+
+/*-------picture functions-------*/
+
 //画像切り替え関数
 function changeIMG(num){
   document.getElementById("pict").src=img[num].src;
@@ -55,6 +58,9 @@ function IMGjihou(){
   setTimeout(IMGjihou, delay);
 }
 
+
+/*-------serif functions--------*/
+
 function serif () {
   var t2 = new Date(); //現在時刻を取得
   var hour2 = t2.getHours();
@@ -69,6 +75,18 @@ function serif () {
 
 function updateSerifText(){
   document.getElementById("yukarin_serif").innerHTML = text[cnt];
+  if(cnt==0)
+  {changeIMG(0);}
+  if(cnt==1)
+  {changeIMG(4);}
+  if(cnt==2)
+  {changeIMG(6);}
+  if(cnt==3)
+  {changeIMG(5);}
+  if(cnt==4)
+  {changeIMG(10);}
+  if(cnt==5)
+  {changeIMG(1);}
   //セリフ番号を進める
   if (cnt == 5)
   { cnt=1; }
@@ -88,9 +106,12 @@ function serifJihou(){
   setTimeout(serifJihou, delay);
 }
 
+
+/*------event functions-------*/
+
 //click時のイベント処理
 function Click(){
-  click=1;
+  click++;
   rnd = Math.floor(Math.random()*4);
   document.getElementById("yukarin_serif").innerHTML = reaction[rnd];
   if (rnd==0)
@@ -102,8 +123,9 @@ function Click(){
   if (rnd==3)
   {changeIMG(8)}
   //切り替わって5秒でもとのゆかりさんにする
-  setTimeout(resetIMG, 5000);
-  setTimeout(serif,5000);
+  //setTimeout(resetIMG, 5000);
+  if(click<=1)
+  {setTimeout(serif,5000);}
   setTimeout(clickReset,5000);
 }
 
