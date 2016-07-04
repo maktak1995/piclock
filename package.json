@@ -1,7 +1,7 @@
 {
   "name": "piclock",
-  "version": "0.0.4",
-  "description": "add yukarin reaction",
+  "version": "0.0.5",
+  "description": "clock widget with desktop mascot",
   "main": "index.js",
   "scripts": {
     "build": "node_modules/.bin/electron ."

@@ -1,3 +1,9 @@
+/*--
+FILE :avator.js
+ABOUT:キャラクターの振る舞いを設定
+AUTHER:MakTak
+UPDATE:2016/7/4
+--*/
 var cnt=0;//セリフ切り替え用グローバル変数
 var click=0;//クリック判定用フラグ
 var rnd;//click時のリアクション用変数

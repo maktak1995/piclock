@@ -1,3 +1,10 @@
+/*--
+FILE :input.js
+ABOUT:セリフ、画像の読み込み
+AUTHER:MakTak
+UPDATE:2016/7/4
+--*/
+
 /*-----------------------画像セット-----------------------*/
 var img = new Array();
 img[0] = new Image();
