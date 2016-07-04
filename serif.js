@@ -73,7 +73,7 @@ function serifJihou(){
   var t = new Date(); //現在時刻を取得
   var hour = t.getHours();
   var minute = t.getMinutes();
-  if(minute == 0){
+  if(minute==0 && click==0){
   document.getElementById("yukarin_serif").innerHTML = zihou[hour]; //時刻に応じたセリフをセット
   }
   // 次の「0ミリ秒」に実行されるよう、次の描画処理を予約
