@@ -21,10 +21,6 @@ function changeIMG(num){
   document.getElementById("pict").src=img[num].src;
 }
 
-function resetIMG(){
-  changeIMG(0);
-}
-
 function IMGjihou(){
   var t = new Date(); //現在時刻を取得
   var hour = t.getHours();
@@ -122,9 +118,7 @@ function Click(){
   {changeIMG(3)}
   if (rnd==3)
   {changeIMG(8)}
-  //切り替わって5秒でもとのゆかりさんにする
-  //setTimeout(resetIMG, 5000);
-  if(click<=1)
+  if(click==0)
   {setTimeout(serif,5000);}
   setTimeout(clickReset,5000);
 }
