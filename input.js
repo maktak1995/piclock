@@ -1,15 +1,37 @@
-var cnt=0;//セリフ切り替え用グローバル変数
-var click=0;//クリック判定用フラグ
-var rnd;//click時のリアクション用変数
+/*-----------------------画像セット-----------------------*/
+var img = new Array();
+img[0] = new Image();
+img[0].src = "img/main.png";
+img[1] = new Image();
+img[1].src = "img/sub1.png";
+img[2] = new Image();
+img[2].src=  "img/sub2.png";
+img[3] = new Image();
+img[3].src=  "img/sub3.png";
+img[4] = new Image();
+img[4].src=  "img/sub4.png";
+img[5] = new Image();
+img[5].src=  "img/sub5.png";
+img[6] = new Image();
+img[6].src=  "img/sub6.png";
+img[7] = new Image();
+img[7].src=  "img/sub7.png";
+img[8] = new Image();
+img[8].src=  "img/sub8.png";
+img[9] = new Image();
+img[9].src=  "img/sub9.png";
+img[10] = new Image();
+img[10].src=  "img/sub10.png";
+
 
 /*----------------------セリフセット----------------------*/
 var text = new Array();//通常
-text[0] = 'ハロー。';
-text[1] = 'マスター、暇です。';
+text[0] = 'ハロー。';//main
+text[1] = 'マスター、暇です。';//sub4
 text[2] = '今何時？上見てくださいよ。';
-text[3] = 'ゲームとかしません？';
-text[4] = '忙しそうですね。';
-text[5] = 'コーヒーでもいかがです?';
+text[3] = 'ゲームとかしません？';//sub5
+text[4] = '忙しそうですね。';//sub10
+text[5] = 'コーヒーでもいかがです?';//sub1
 
 var zihou = new Array(); //時報
 zihou[0] = '0時です。日付変わりましたよ。もう寝たらいかがです?';//sub3
@@ -42,64 +64,3 @@ reaction[0] = '私の顔になにかついてます?';//sub6
 reaction[1] = 'どうかしましたか?';//sub9
 reaction[2] = 'ゲームの邪魔しないでもらえます?';//sub3
 reaction[3] = '仕事してください。';//sub8
-
-
-serif();
-//時報のチェック
-serifJihou();
-
-function serif () {
-  var t2 = new Date(); //現在時刻を取得
-  var hour2 = t2.getHours();
-  var minute2 = t2.getMinutes();
-  if(minute2 != 0){
-    //セリフを更新
-    updateSerifText();
-  }
-  if(click==0)
-  {setTimeout(serif, 10000);}
-}
-
-function updateSerifText(){
-  document.getElementById("yukarin_serif").innerHTML = text[cnt];
-  //セリフ番号を進める
-  if (cnt == 5)
-  { cnt=1; }
-  else
-  { cnt++; }
-}
-
-function serifJihou(){
-  var t = new Date(); //現在時刻を取得
-  var hour = t.getHours();
-  var minute = t.getMinutes();
-  if(minute==0 && click==0){
-  document.getElementById("yukarin_serif").innerHTML = zihou[hour]; //時刻に応じたセリフをセット
-  }
-  // 次の「0ミリ秒」に実行されるよう、次の描画処理を予約
-  var delay = 1000 - new Date().getMilliseconds();
-  setTimeout(serifJihou, delay);
-}
-
-//click時のイベント処理
-function Click(){
-  click=1;
-  rnd = Math.floor(Math.random()*4);
-  document.getElementById("yukarin_serif").innerHTML = reaction[rnd];
-  if (rnd==0)
-  {changeIMG(6)}
-  if (rnd==1)
-  {changeIMG(9)}
-  if (rnd==2)
-  {changeIMG(3)}
-  if (rnd==3)
-  {changeIMG(8)}
-  //切り替わって5秒でもとのゆかりさんにする
-  setTimeout(resetIMG, 5000);
-  setTimeout(serif,5000);
-  setTimeout(clickReset,5000);
-}
-
-function clickReset(){
-  click=0;
-}
