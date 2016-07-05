@@ -5,7 +5,6 @@ AUTHER:MakTak
 UPDATE:2016/7/4
 --*/
 var cnt=0;//セリフ切り替え用グローバル変数
-var click=0;//クリック判定用フラグ
 var rnd;//click時のリアクション用変数
 
 serif();//セリフを表示
@@ -65,8 +64,7 @@ function serif () {
     //セリフを更新
     updateSerifText();
   }
-  if(click==0)
-  {setTimeout(serif, 10000);}
+  setTimeout(serif, 10000);
 }
 
 function updateSerifText(){
@@ -117,12 +115,4 @@ function Click(){
   {changeIMG(3)}
   if (rnd==3)
   {changeIMG(8)}
-  if(click==0)
-  {setTimeout(serif,5000);}
-  click++;
-  setTimeout(clickReset,5000);
-}
-
-function clickReset(){
-  click=0;
 }
