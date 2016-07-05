@@ -94,7 +94,7 @@ function serifJihou(){
   var t = new Date(); //現在時刻を取得
   var hour = t.getHours();
   var minute = t.getMinutes();
-  if(minute==0 && click==0){
+  if(minute==0){
   document.getElementById("yukarin_serif").innerHTML = zihou[hour]; //時刻に応じたセリフをセット
   }
   // 次の「0ミリ秒」に実行されるよう、次の描画処理を予約
@@ -107,7 +107,6 @@ function serifJihou(){
 
 //click時のイベント処理
 function Click(){
-  click++;
   rnd = Math.floor(Math.random()*4);
   document.getElementById("yukarin_serif").innerHTML = reaction[rnd];
   if (rnd==0)
@@ -120,6 +119,7 @@ function Click(){
   {changeIMG(8)}
   if(click==0)
   {setTimeout(serif,5000);}
+  click++;
   setTimeout(clickReset,5000);
 }
 
