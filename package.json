@@ -1,6 +1,6 @@
 {
   "name": "piclock",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "clock widget with desktop mascot",
   "main": "index.js",
   "scripts": {

@@ -9,48 +9,13 @@ var rnd;//click時のリアクション用変数
 
 serif();//セリフを表示
 //時報の必要があるかチェック
-IMGjihou();
-serifJihou();
-
+Jihou();
 
 /*-------picture functions-------*/
 
 //画像切り替え関数
 function changeIMG(num){
   document.getElementById("pict").src=img[num].src;
-}
-
-function IMGjihou(){
-  var t = new Date(); //現在時刻を取得
-  var hour = t.getHours();
-  var minute = t.getMinutes();
-  var second = t.getSeconds();
-
-  if(minute == 0 && second <= 20){
-    if(hour==2 || hour==5 || hour==22)
-    {changeIMG(1);}
-    if(hour==8 || hour==12 || hour==15)
-    {changeIMG(2);}
-    if(hour==0)
-    {changeIMG(3);}
-    if(hour==21)
-    {changeIMG(4);}
-    if(hour==17 || hour==20)
-    {changeIMG(5);}
-    if(hour==6 || hour==10)
-    {changeIMG(6);}
-    if(hour==3)
-    {changeIMG(7);}
-    if(hour==7 || hour==23)
-    {changeIMG(8);}
-    if(hour==4 || hour==9 || hour==18)
-    {changeIMG(9);}
-    if(hour==11 || hour==16 || hour==19)
-    {changeIMG(10);}
-  }
-  // 次の「0ミリ秒」に実行されるよう、次の描画処理を予約
-  var delay = 1000 - new Date().getMilliseconds();
-  setTimeout(IMGjihou, delay);
 }
 
 
@@ -88,19 +53,6 @@ function updateSerifText(){
   { cnt++; }
 }
 
-function serifJihou(){
-  var t = new Date(); //現在時刻を取得
-  var hour = t.getHours();
-  var minute = t.getMinutes();
-  if(minute==0){
-  document.getElementById("yukarin_serif").innerHTML = zihou[hour]; //時刻に応じたセリフをセット
-  }
-  // 次の「0ミリ秒」に実行されるよう、次の描画処理を予約
-  var delay = 1000 - new Date().getMilliseconds();
-  setTimeout(serifJihou, delay);
-}
-
-
 /*------event functions-------*/
 
 //click時のイベント処理
@@ -115,4 +67,41 @@ function Click(){
   {changeIMG(3)}
   if (rnd==3)
   {changeIMG(8)}
+}
+
+//時報タイミングの処理
+function Jihou(){
+  var t = new Date(); //現在時刻を取得
+  var hour = t.getHours();
+  var minute = t.getMinutes();
+  var second = t.getSeconds();
+
+  if(minute == 0 && second <= 20){
+    document.getElementById("yukarin_serif").innerHTML = zihou[hour]; //時刻に応じたセリフをセット
+    if(hour==1 || hour==14)
+    {changeIMG(0);}
+    if(hour==2 || hour==5 || hour==22)
+    {changeIMG(1);}
+    if(hour==8 || hour==12 || hour==15)
+    {changeIMG(2);}
+    if(hour==0)
+    {changeIMG(3);}
+    if(hour==21)
+    {changeIMG(4);}
+    if(hour==17 || hour==20)
+    {changeIMG(5);}
+    if(hour==6 || hour==10)
+    {changeIMG(6);}
+    if(hour==3)
+    {changeIMG(7);}
+    if(hour==7 || hour==23)
+    {changeIMG(8);}
+    if(hour==4 || hour==9 || hour==18)
+    {changeIMG(9);}
+    if(hour==11 || hour==16 || hour==19)
+    {changeIMG(10);}
+  }
+  // 次の「0ミリ秒」に実行されるよう、次の描画処理を予約
+  var delay = 1000 - new Date().getMilliseconds();
+  setTimeout(Jihou, delay);
 }

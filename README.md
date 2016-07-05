@@ -9,10 +9,9 @@
 
 ---
 
-* Version:0.0.5  
-* Update:2016/7/4  
-  - クリック時のリアクションを追加
-  - jsファイルのブロックを変更  
+* Version:0.1.0  
+* Update:2016/7/5  
+  - 時報処理をイベント処理として統合
 * Auther:MakTak  
 * このappは、GPLライセンスに準拠しています。  
 * This app follow GPL.  
