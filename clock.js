@@ -1,3 +1,10 @@
+/*--
+FILE :clock.js
+ABOUT:時計部分
+AUTHER:MakTak
+UPDATE:2016/7/4
+--*/
+
 // 時計の描画処理をスタート
 clock();
 

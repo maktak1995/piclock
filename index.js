@@ -3,7 +3,11 @@
 const electron = require("electron");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+const Tray = electron.Tray;
+const Menu = electron.Menu;
+const Remote = electron.remote;
 let mainWindow;
+let tray = null;
 
 // 全てのウィンドウが閉じたら終了
 app.on('window-all-closed', function() {
@@ -26,4 +30,10 @@ app.on('ready', function() {
   mainWindow.on('closed', function() {
     mainWindow = null;
   });
+
+  tray = new Tray(__dirname + '/img/appicon16.png');
+  const contextMenu = Menu.buildFromTemplate([
+  {label: "表示", click: function () { mainWindow.focus(); }},
+  {label: "終了", click: function () { app.quit(); 　　　　　}}]);
+  tray.setContextMenu(contextMenu);
 });
