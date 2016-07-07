@@ -7,6 +7,11 @@
 * Yukarin also tell you the time.
 * I use 山栗鼠's illust.(http://seiga.nicovideo.jp/seiga/im5342445)
 
+##使い方
+* electronの環境が構築してあるひとはソースから直接お使いください
+* そうじゃない人向けにMac用、windows用にパッケージングしたものがpackagedに格納されています
+
+
 ##追加予定機能
 * twitterアラート(開発中)
 * googleカレンダーとの連携
