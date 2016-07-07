@@ -7,6 +7,9 @@
 * Yukarin also tell you the time.
 * I use 山栗鼠's illust.(http://seiga.nicovideo.jp/seiga/im5342445)
 
+##追加予定機能
+* twitterアラート(開発中)
+* googleカレンダーとの連携
 ---
 
 * Version:0.1.1  

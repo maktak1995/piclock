@@ -5,7 +5,7 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const Tray = electron.Tray;
 const Menu = electron.Menu;
-const Remote = electron.remote;
+
 let mainWindow;
 let tray = null;
 
