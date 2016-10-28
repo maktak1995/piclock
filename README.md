@@ -22,5 +22,5 @@
 * Update:2016/7/6  
   - タスクトレイメニューを追加
 * Auther:MakTak  
-* このappは、GPLライセンスに準拠しています。  
-* This app follow GPL.  
+* このappは、MITライセンスに準拠しています。  
+* This app follow MIT licence.  
