@@ -2,34 +2,31 @@
 FILE :input.js
 ABOUT:セリフ、画像の読み込み
 AUTHER:MakTak
-UPDATE:2016/7/4
+UPDATE:2016/11/4
 --*/
 
 /*-----------------------画像セット-----------------------*/
+var i = 0;
 var img = new Array();
 img[0] = new Image();
 img[0].src = "img/main.png";
-img[1] = new Image();
-img[1].src = "img/sub1.png";
-img[2] = new Image();
-img[2].src=  "img/sub2.png";
-img[3] = new Image();
-img[3].src=  "img/sub3.png";
-img[4] = new Image();
-img[4].src=  "img/sub4.png";
-img[5] = new Image();
-img[5].src=  "img/sub5.png";
-img[6] = new Image();
-img[6].src=  "img/sub6.png";
-img[7] = new Image();
-img[7].src=  "img/sub7.png";
-img[8] = new Image();
-img[8].src=  "img/sub8.png";
-img[9] = new Image();
-img[9].src=  "img/sub9.png";
-img[10] = new Image();
-img[10].src=  "img/sub10.png";
+for(i=1;i<=10;i++){
+  img[i] = new Image();
+  img[i].src = "img/sub" + String(i) + ".png";
+}
 
+/*-----------------------音声セット-----------------------*/
+var v_text = new Array();
+for(i=0;i<=5;i++){
+  v_text[i] = new Audio();
+  v_text[i].src = "voice/text" + String(i) + ".wav";
+}
+
+var v_reaction = new Array();
+for(i=0;i<=3;i++){
+  v_reaction[i] = new Audio();
+  v_reaction[i].src = "voice/reaction" + String(i) + ".wav";
+}
 
 /*----------------------セリフセット----------------------*/
 var text = new Array();//通常
@@ -46,7 +43,7 @@ zihou[1] = '1時です。頑張りますねえ。';//main
 zihou[2] = '2時です。しょうがないですね。私も付き合いますよ。';//sub1
 zihou[3] = '3時です。丑三つ時は幽霊がこわいですよね。';//sub7
 zihou[4] = '4時です。そろそろ休憩しません?';//sub9
-zihou[5] = '5時です。もう朝が近いですね。徹夜でお疲れ様ですね。';//sub1
+zihou[5] = '5時です。もう朝が近いです。徹夜でお疲れ様ですね。';//sub1
 zihou[6] = '6時です。もう日が昇りましたよ。うおっまぶしっ';//sub6
 zihou[7] = '7時です。そろそろおなかがすきました...';//sub8
 zihou[8] = '8時です。朝ごはんを食べましょう!';//sub2

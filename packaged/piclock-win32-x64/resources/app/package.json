@@ -1,11 +1,11 @@
 {
   "name": "piclock",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "clock widget with desktop mascot",
   "main": "index.js",
   "scripts": {
     "build": "node_modules/.bin/electron ."
   },
   "author": "MakTak",
-  "license": "ISC"
+  "license": "MIT"
 }
