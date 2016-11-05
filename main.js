@@ -29,40 +29,22 @@ function createWindow () {
     mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
   })
 
-  if (process.platform === 'darwin') {
-    menu = Menu.buildFromTemplate([
-      {
-        label: 'Quit',
-        accelerator: 'Command+Q',
-        click: () => app.quit()
-      },
-      {
-        label: 'Mute',
-        accelerator: 'Command+M',
-        click: (item, focusedWindow) => {
-          if (focusedWindow)
-            focusedWindow.webContents.executeJavaScript('mute()');
-        }
+  menu = Menu.buildFromTemplate([
+    {
+      label: 'Quit',
+      accelerator: 'CmdOrCtrl+Q',
+      click: () => app.quit()
+    },
+    {
+      label: 'Mute',
+      accelerator: 'CmdOrCtrl+M',
+      click: (item, focusedWindow) => {
+        if (focusedWindow)
+          focusedWindow.webContents.executeJavaScript('mute()');
       }
-    ])
-  } else {
-    menu = Menu.buildFromTemplate([
-      {
-        label: 'Quit',
-        accelerator: 'Ctrl+Q',
-        click: () => app.quit()
-      },
-      {
-        label: 'Mute',
-        accelerator: 'Ctrl+M',
-        click: (item, focusedWindow) => {
-          if (focusedWindow)
-            focusedWindow.webContents.executeJavaScript('mute()');
-        }
-      }
-    ])
-  }
-
+    }
+  ])
+  
   Menu.setApplicationMenu(menu)
   tray.setContextMenu(menu)
 }
