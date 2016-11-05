@@ -19,13 +19,13 @@ function createWindow () {
     slashes: true
   }))
 
-  mainWindow.on('closed', function () {
+  mainWindow.on('closed', () => {
     mainWindow = null
   })
 
   tray = new Tray(path.join(__dirname, 'assets', 'appicon16.png'))
 
-  tray.on('click', function () {
+  tray.on('click', () => {
     mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
   })
 
@@ -34,12 +34,12 @@ function createWindow () {
       {
         label: 'Quit',
         accelerator: 'Command+Q',
-        click: function () { app.quit() }
+        click: () => app.quit()
       },
       {
         label: 'Mute',
         accelerator: 'Command+M',
-        click: function(item, focusedWindow) {
+        click: (item, focusedWindow) => {
           if (focusedWindow)
             focusedWindow.webContents.executeJavaScript('mute()');
         }
@@ -50,12 +50,12 @@ function createWindow () {
       {
         label: 'Quit',
         accelerator: 'Ctrl+Q',
-        click: function () { app.quit() }
+        click: () => app.quit()
       },
       {
         label: 'Mute',
         accelerator: 'Ctrl+M',
-        click: function(item, focusedWindow) {
+        click: (item, focusedWindow) => {
           if (focusedWindow)
             focusedWindow.webContents.executeJavaScript('mute()');
         }
@@ -69,13 +69,13 @@ function createWindow () {
 
 app.on('ready', createWindow)
 
-app.on('window-all-closed', function () {
+app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
-app.on('activate', function () {
+app.on('activate', () => {
   if (mainWindow === null) {
     createWindow()
   }
