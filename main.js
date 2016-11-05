@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, Tray } = require('electron')
+const {app, BrowserWindow, Menu, Tray} = require('electron')
 const path = require('path')
 const url = require('url')
 
@@ -23,13 +23,13 @@ function createWindow () {
     mainWindow = null
   })
 
-  tray = new Tray(path.join(__dirname, 'assets', 'appicon16.png'))
+  const tray = new Tray(path.join(__dirname, 'assets', 'appicon16.png'))
 
   tray.on('click', () => {
     mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
   })
 
-  menu = Menu.buildFromTemplate([
+  const menu = Menu.buildFromTemplate([
     {
       label: 'Quit',
       accelerator: 'CmdOrCtrl+Q',
@@ -39,9 +39,8 @@ function createWindow () {
       label: 'Mute',
       accelerator: 'CmdOrCtrl+M',
       type: 'checkbox',
-      click: (item, focusedWindow) => {
-        if (focusedWindow)
-          focusedWindow.webContents.executeJavaScript('mute()');
+      click: (item) => {
+        mainWindow.webContents.executeJavaScript(`mute(${item.checked})`)
       }
     }
   ])
