@@ -22,8 +22,9 @@ Or use from package in dist.
 
 ---
 
-* Version:0.1.2  
-* Update:2016/11/4
-  - Add Yukarin voice
+* Version:0.1.3  
+* Update:2016/11/5
+  - Set all Yukarin voice
+  - Add mute function
 * Auther:MakTak  
 * This app follow MIT licence.  

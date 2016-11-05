@@ -37,8 +37,12 @@ function createWindow () {
         click: function () { app.quit() }
       },
       {
-        label: 'Show',
-        click: function () { mainWindow.focus() }
+        label: 'Mute',
+        accelerator: 'Command+M',
+        click: function(item, focusedWindow) {
+          if (focusedWindow)
+            focusedWindow.webContents.executeJavaScript('mute()');
+        }
       }
     ])
   } else {
@@ -49,8 +53,12 @@ function createWindow () {
         click: function () { app.quit() }
       },
       {
-        label: 'Show',
-        click: function () { mainWindow.focus() }
+        label: 'Mute',
+        accelerator: 'Ctrl+M',
+        click: function(item, focusedWindow) {
+          if (focusedWindow)
+            focusedWindow.webContents.executeJavaScript('mute()');
+        }
       }
     ])
   }

@@ -23,7 +23,7 @@ function createWindow () {
     mainWindow = null
   })
 
-  tray = new Tray(path.join(__dirname, 'src', 'img', 'appicon16.png'))
+  tray = new Tray(path.join(__dirname, 'assets', 'appicon16.png'))
 
   tray.on('click', function () {
     mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
@@ -35,6 +35,14 @@ function createWindow () {
         label: 'Quit',
         accelerator: 'Command+Q',
         click: function () { app.quit() }
+      },
+      {
+        label: 'Mute',
+        accelerator: 'Command+M',
+        click: function(item, focusedWindow) {
+          if (focusedWindow)
+            focusedWindow.webContents.executeJavaScript('mute()');
+        }
       }
     ])
   } else {
@@ -43,6 +51,14 @@ function createWindow () {
         label: 'Quit',
         accelerator: 'Ctrl+Q',
         click: function () { app.quit() }
+      },
+      {
+        label: 'Mute',
+        accelerator: 'Ctrl+M',
+        click: function(item, focusedWindow) {
+          if (focusedWindow)
+            focusedWindow.webContents.executeJavaScript('mute()');
+        }
       }
     ])
   }

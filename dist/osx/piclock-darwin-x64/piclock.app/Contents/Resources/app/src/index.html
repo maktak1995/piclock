@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <link href="./piclock.css" rel="stylesheet">
     <title>test_yukari</title>
+    <div id="mute"></div>
+    <script>
+    function mute(){
+      if(document.getElementById("mute").innerHTML==1) document.getElementById("mute").innerHTML=0;
+      else document.getElementById("mute").innerHTML=1;
+    }
+    </script>
 </head>
 <body ng-app="app" ng-controller="RootCtrl as root">
   <div id="digital_clock"><!-- ここに時刻が入る --></div>

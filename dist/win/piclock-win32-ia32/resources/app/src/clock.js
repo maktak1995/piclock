@@ -1,6 +1,6 @@
 /*--
 FILE :clock.js
-ABOUT:時計部分
+ABOUT:clock module
 AUTHER:MakTak
 UPDATE:2016/7/4
 --*/
