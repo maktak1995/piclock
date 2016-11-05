@@ -9,7 +9,7 @@ To clone and run this repository you'll need [Git](https://git-scm.com/) and [No
 
 ```bash
 # Clone this repository
-git clone https://github.com/kou029w/piclock
+git clone https://github.com/take114514/piclock
 # Go into the repository
 cd piclock
 # Install dependencies
