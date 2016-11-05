@@ -33,11 +33,12 @@ function createWindow () {
     {
       label: 'Quit',
       accelerator: 'CmdOrCtrl+Q',
-      click: () => app.quit()
+      role: 'quit'
     },
     {
       label: 'Mute',
       accelerator: 'CmdOrCtrl+M',
+      type: 'checkbox',
       click: (item, focusedWindow) => {
         if (focusedWindow)
           focusedWindow.webContents.executeJavaScript('mute()');
