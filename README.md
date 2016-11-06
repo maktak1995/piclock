@@ -18,7 +18,7 @@ npm install
 npm start
 ```
 
-Or use from package in dist.
+Or open from package in dist.
 
 ---
 
