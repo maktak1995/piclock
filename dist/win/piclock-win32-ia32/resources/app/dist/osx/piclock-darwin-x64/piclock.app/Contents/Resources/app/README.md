@@ -9,11 +9,11 @@ To clone and run this repository you'll need [Git](https://git-scm.com/) and [No
 
 ```bash
 # Clone this repository
-git clone https://github.com/kou029w/piclock
+git clone https://github.com/take114514/piclock
 # Go into the repository
 cd piclock
 # Install dependencies
-npm installÂ
+npm install
 # Run the app
 npm start
 ```
@@ -22,8 +22,9 @@ Or use from package in dist.
 
 ---
 
-* Version:0.1.2  
-* Update:2016/11/4
-  - Add Yukarin voice
+* Version:0.1.3  
+* Update:2016/11/5
+  - Set all Yukarin voice
+  - Add mute function
 * Auther:MakTak  
 * This app follow MIT licence.  
