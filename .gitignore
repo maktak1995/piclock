@@ -1,5 +1,7 @@
 # Created by https://www.gitignore.io/api/node,wiondws,macos,linux
 
+###ignore dist###
+dist/
 ### Node ###
 # Logs
 logs
