@@ -1,4 +1,5 @@
 # piclock
+* **Now,this branch is for development.**
 * This app is made for practice the electron.
 * Yukarin(Yukari Yuduki) talk to you with characters(japanese only now. sorry!).
 * Yukarin also tell you the time.
@@ -18,11 +19,11 @@ npm install
 npm start
 ```
 
-Or use from package in dist.
+Or open from package in dist.
 
 ---
 
-* Version:0.1.3  
+* Version:0.2.0  
 * Update:2016/11/5
   - Set all Yukarin voice
   - Add mute function

@@ -40,11 +40,11 @@ function createWindow () {
       accelerator: 'CmdOrCtrl+M',
       type: 'checkbox',
       click: (item) => {
-        mainWindow.webContents.executeJavaScript(`mute(${item.checked})`)
+        mainWindow.webContents.setAudioMuted(item.checked)
       }
     }
   ])
-  
+
   Menu.setApplicationMenu(menu)
   tray.setContextMenu(menu)
 }

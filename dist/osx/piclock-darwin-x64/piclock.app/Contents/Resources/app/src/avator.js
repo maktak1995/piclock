@@ -6,7 +6,6 @@ UPDATE:2016/11/5
 --*/
 var cnt=0;//セリフ切り替え用グローバル変数
 var rnd;//click時のリアクション用変数
-var muteFlag=false;//Muteするかどうかの初期設定
 
 serif();//セリフを表示
 //時報の必要があるかチェック
@@ -20,9 +19,6 @@ function changeIMG(num){
 }
 
 /*-------voice functions--------*/
-function mute(flag){
-  muteFlag=flag;
-}
 
 //全音声を停止
 function allvoicestop(){
@@ -64,7 +60,7 @@ function serif () {
 
 function updateSerifText(){
   document.getElementById("yukarin_serif").innerHTML = text[cnt];
-  if(!muteFlag) playvoice('text',cnt);
+  playvoice('text',cnt);
   if(cnt==0) changeIMG(0);
   if(cnt==1) changeIMG(4);
   if(cnt==2) changeIMG(6);
@@ -85,7 +81,7 @@ function updateSerifText(){
 function Click(){
   rnd = Math.floor(Math.random()*4);
   document.getElementById("yukarin_serif").innerHTML = reaction[rnd];
-  if(!muteFlag) playvoice('reaction',rnd);
+  playvoice('reaction',rnd);
   if(rnd==0) changeIMG(6);
   if(rnd==1) changeIMG(9);
   if(rnd==2) changeIMG(3);
@@ -112,7 +108,7 @@ function Jihou(){
     if(hour==7 || hour==23)              changeIMG(8);
     if(hour==4 || hour==9 || hour==18)   changeIMG(9);
     if(hour==11 || hour==16 || hour==19) changeIMG(10);
-    if(!muteFlag) playvoice('zihou',hour);
+    playvoice('zihou',hour);
   }
   // 次の「0ミリ秒」に実行されるよう、次の描画処理を予約
   var delay = 1000 - new Date().getMilliseconds();
