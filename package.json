@@ -17,6 +17,6 @@
   "author": "MakTak",
   "license": "MIT",
   "devDependencies": {
-  "electron": "^1.4.5"
+    "electron": "^1.4.5"
   }
 }
