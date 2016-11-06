@@ -1,4 +1,5 @@
 # piclock
+* **Now,this branch is for development.**
 * This app is made for practice the electron.
 * Yukarin(Yukari Yuduki) talk to you with characters(japanese only now. sorry!).
 * Yukarin also tell you the time.
@@ -18,7 +19,7 @@ npm install
 npm start
 ```
 
-Or use from package in dist.
+Or open from package in dist.
 
 ---
 
