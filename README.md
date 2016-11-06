@@ -22,7 +22,7 @@ Or use from package in dist.
 
 ---
 
-* Version:0.1.3  
+* Version:0.2.0  
 * Update:2016/11/5
   - Set all Yukarin voice
   - Add mute function
