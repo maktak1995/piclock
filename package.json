@@ -15,6 +15,11 @@
     "clean:win": "rm -rf ./dist/win"
   },
   "author": "MakTak",
+  "contributors": [
+    {
+      "name": "Kohei Watanabe",
+      "url": "https://github.com/kou029w"
+    }],
   "license": "MIT",
   "devDependencies": {
     "electron": "^1.4.5"
