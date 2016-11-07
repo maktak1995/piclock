@@ -2,7 +2,7 @@ const {app, BrowserWindow, Menu, Tray} = require('electron')
 const path = require('path')
 const url = require('url')
 
-let mainWindow
+var mainWindow
 
 function createWindow () {
   mainWindow = new BrowserWindow({
