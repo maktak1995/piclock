@@ -3,7 +3,7 @@ const path = require('path')
 const url = require('url')
 
 let mainWindow
-
+let tray
 function createWindow () {
   mainWindow = new BrowserWindow({
     width: 200,
@@ -23,7 +23,7 @@ function createWindow () {
     mainWindow = null
   })
 
-  const tray = new Tray(path.join(__dirname, 'assets', 'appicon16.png'))
+  tray = new Tray(path.join(__dirname, 'assets', 'appicon16.png'))
 
   tray.on('click', () => {
     mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
@@ -41,6 +41,12 @@ function createWindow () {
       type: 'checkbox',
       click: (item) => {
         mainWindow.webContents.setAudioMuted(item.checked)
+      }
+    },
+    {
+      label: 'Show',
+      click: () => {
+        mainWindow.show()
       }
     }
   ])
