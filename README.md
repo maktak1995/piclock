@@ -19,8 +19,6 @@ npm install
 npm start
 ```
 
-Or open from package in dist.
-
 ---
 
 * Version:0.2.0  
