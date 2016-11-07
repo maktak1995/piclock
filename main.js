@@ -42,12 +42,6 @@ function createWindow () {
       click: (item) => {
         mainWindow.webContents.setAudioMuted(item.checked)
       }
-    },
-    {
-      label: 'Show',
-      click: () => {
-        mainWindow.show()
-      }
     }
   ])
 
