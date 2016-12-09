@@ -4,6 +4,7 @@
 * Yukarin(Yukari Yuduki) talk to you with characters(japanese only now. sorry!).
 * Yukarin also tell you the time.
 * I use 山栗鼠's illust.(http://seiga.nicovideo.jp/seiga/im5342445)
+* I use かみち's illust.(http://seiga.nicovideo.jp/seiga/im5601635)
 
 ##To use
 To clone and run this repository you'll need [Git](https://git-scm.com/) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com/)) installed on your computer. From your command line:
@@ -21,9 +22,8 @@ npm start
 
 ---
 
-* Version:0.2.0  
-* Update:2016/11/5
-  - Set all Yukarin voice
-  - Add mute function
+* Version:0.3.0  
+* Update:2016/12/9
+  - Change UI
 * Auther:MakTak  
 * This app follow MIT licence.  

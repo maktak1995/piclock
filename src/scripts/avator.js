@@ -9,7 +9,6 @@ var rnd;//click時のリアクション用変数
 
 serif();//セリフを表示
 Jihou();//時報の必要があるかチェック
-
 /*-------picture functions-------*/
 
 //画像切り替え関数
@@ -52,7 +51,6 @@ function serif () {
   if(minute2 != 0){
     //セリフを更新
     updateSerifText();
-    console.log("test");
   }
   setTimeout(serif, 30000);
 }

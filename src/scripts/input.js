@@ -74,7 +74,3 @@ reaction[0] = '私の顔になにかついてます?';//sub6
 reaction[1] = 'どうかしましたか?';//sub9
 reaction[2] = 'ゲームの邪魔しないでもらえます?';//sub3
 reaction[3] = '仕事してください。';//sub8
-
-var tweet = new Array();
-tweet[0] = 'マスターにメッセージがきてますよ。';//sub1
-tweet[1] = 'マスターにダイレクトメッセージです。ないしょばなしですか?';//sub7
