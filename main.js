@@ -6,15 +6,13 @@ let mainWindow
 let tray
 function createWindow () {
   mainWindow = new BrowserWindow({
-    width: 200,
-    height: 360,
-    resizable: false,
-    transparent: true,
-    frame: false
+    width: 380,
+    height: 280,
+    resizable: false
   })
 
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'src', 'index.html'),
+    pathname: path.join(__dirname, 'src', 'scripts', 'index.html'),
     protocol: 'file:',
     slashes: true
   }))

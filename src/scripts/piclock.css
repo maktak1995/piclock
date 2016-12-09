@@ -1,0 +1,60 @@
+@import url(http://fonts.googleapis.com/css?family=Iceland);
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-image: url("../img/back.jpg");
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-size:cover;
+  -webkit-user-select: none;
+}
+
+
+#character {
+  width:  auto;
+  height: 240px;
+  position: fixed;
+  right:  1px;
+  top: 10%;
+}
+
+#textbox {
+  position: absolute;
+  text-align: left;
+  width: 50%;
+}
+
+#digital_clock {
+  font-family: "Iceland";
+  font-size: 25px;
+  line-height: 23px;
+  margin-top: 9px;
+  margin-left: 9px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 3px #000;
+}
+
+#fukidashi{
+  width:  185px;
+  height: 150px;
+  margin-left: 7px;
+  margin-top: 20px;
+  position: absolute;
+}
+
+#yukarin_serif {
+  font-family: "Noto Sans Japanese",serif;
+  font-size: 15px;
+  line-height: 20px;
+  margin-top: 50px;
+  margin-left: 9px;
+  color: #fff;
+  text-shadow: 1px 1px 3px #000;
+  text-align: center;
+  position: relative;
+  word-wrap: break-word;
+}

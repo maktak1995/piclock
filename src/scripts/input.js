@@ -2,36 +2,36 @@
 FILE :input.js
 ABOUT:input serif, picture, voice
 AUTHER:MakTak
-UPDATE:2016/11/5
+UPDATE:2016/12/6
 --*/
+
 /*-----------------------画像セット-----------------------*/
 var i = 0;
 var img = new Array();
 img[0] = new Image();
-img[0].src = "./img/main.png";
+img[0].src = "../img/character/main.png";
 for(i=1;i<=10;i++){
   img[i] = new Image();
-  img[i].src = "./img/sub" + String(i) + ".png";
+  img[i].src = "../img/character/sub" + String(i) + ".png";
 }
 
 /*-----------------------音声セット-----------------------*/
-
 var v_text = new Array();
 for(i=0;i<=5;i++){
   v_text[i] = new Audio();
-  v_text[i].src = "./voice/text/text" + String(i) + ".wav";
+  v_text[i].src = "../voice/text/text" + String(i) + ".wav";
 }
 
 var v_reaction = new Array();
 for(i=0;i<=3;i++){
   v_reaction[i] = new Audio();
-  v_reaction[i].src = "./voice/reaction/reaction" + String(i) + ".wav";
+  v_reaction[i].src = "../voice/reaction/reaction" + String(i) + ".wav";
 }
 
 var v_zihou = new Array();
 for(i=0;i<=23;i++){
   v_zihou[i] = new Audio();
-  v_zihou[i].src = "./voice/zihou/zihou" + String(i) + ".wav";
+  v_zihou[i].src = "../voice/zihou/zihou" + String(i) + ".wav";
 }
 
 /*----------------------セリフセット----------------------*/
@@ -74,3 +74,7 @@ reaction[0] = '私の顔になにかついてます?';//sub6
 reaction[1] = 'どうかしましたか?';//sub9
 reaction[2] = 'ゲームの邪魔しないでもらえます?';//sub3
 reaction[3] = '仕事してください。';//sub8
+
+var tweet = new Array();
+tweet[0] = 'マスターにメッセージがきてますよ。';//sub1
+tweet[1] = 'マスターにダイレクトメッセージです。ないしょばなしですか?';//sub7
