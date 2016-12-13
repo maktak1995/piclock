@@ -22,6 +22,7 @@ npm start
 
 If you want to change character, please replace images in /src/img/character.
 Or if you use from releaced package, replace images in /character.
+
 ---
 
 * Version:0.3.1  
