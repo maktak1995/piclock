@@ -20,10 +20,12 @@ npm install
 npm start
 ```
 
+If you want to change character, please replace images in /src/img/character.
+Or if you use from releaced package, replace images in /character.
 ---
 
-* Version:0.3.0  
-* Update:2016/12/9
-  - Change UI
+* Version:0.3.1  
+* Update:2016/12/13
+  - Remove flame
 * Auther:MakTak  
 * This app follow MIT licence.  

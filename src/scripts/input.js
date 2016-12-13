@@ -9,7 +9,7 @@ UPDATE:2016/12/6
 var i = 0;
 var img = new Array();
 img[0] = new Image();
-img[0].src = "../img/character/main.png";
+img[0].src = "../img/character/main.png"; //mac -> 6up, win -> 4up
 for(i=1;i<=10;i++){
   img[i] = new Image();
   img[i].src = "../img/character/sub" + String(i) + ".png";

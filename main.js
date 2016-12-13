@@ -6,9 +6,11 @@ let mainWindow
 let tray
 function createWindow () {
   mainWindow = new BrowserWindow({
-    width: 380,
-    height: 280,
-    resizable: false
+    width: 350,
+    height: 250,
+    resizable: false,
+    transparent: true,
+    frame: false
   })
 
   mainWindow.loadURL(url.format({

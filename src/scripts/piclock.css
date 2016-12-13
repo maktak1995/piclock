@@ -9,22 +9,25 @@ body {
   background-repeat: no-repeat;
   background-attachment:fixed;
   background-size:cover;
+  -webkit-app-region: drag;
   -webkit-user-select: none;
 }
 
 
 #character {
-  width:  auto;
-  height: 240px;
-  position: fixed;
-  right:  1px;
-  top: 10%;
+  width:  48%;
+  height: auto;
+  position: relative;
+  float: right;
+  -webkit-app-region: drag;
 }
 
 #textbox {
-  position: absolute;
+  position: relative;
   text-align: left;
   width: 50%;
+  float: left;
+  -webkit-app-region: drag;
 }
 
 #digital_clock {
@@ -35,15 +38,20 @@ body {
   margin-left: 9px;
   text-align: center;
   color: #fff;
+  padding: 0;
+  border: 3px solid rgb(42, 42, 42);
+  background-color: rgba(24, 24, 24, .7);
+  box-shadow: 0 0 2px 2px #000 inset;
   text-shadow: 1px 1px 3px #000;
 }
 
 #fukidashi{
-  width:  185px;
-  height: 150px;
-  margin-left: 7px;
+  width:  175px;
+  height: 145px;
+  margin-left: 5px;
   margin-top: 20px;
   position: absolute;
+  -webkit-app-region: drag;
 }
 
 #yukarin_serif {
