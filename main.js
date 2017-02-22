@@ -6,8 +6,8 @@ let mainWindow
 let tray
 function createWindow () {
   mainWindow = new BrowserWindow({
-    width: 350,
-    height: 250,
+    width: 200,
+    height: 360,
     resizable: false,
     transparent: true,
     frame: false

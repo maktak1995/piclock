@@ -2,20 +2,20 @@
 FILE :input.js
 ABOUT:input serif, picture, voice
 AUTHER:MakTak
-UPDATE:2016/12/6
+UPDATE:2016/11/5
 --*/
-
 /*-----------------------画像セット-----------------------*/
 var i = 0;
 var img = new Array();
 img[0] = new Image();
-img[0].src = "../img/character/main.png"; //mac -> 6up, win -> 4up
+img[0].src = "../img/main.png";
 for(i=1;i<=10;i++){
   img[i] = new Image();
-  img[i].src = "../img/character/sub" + String(i) + ".png";
+  img[i].src = "../img/sub" + String(i) + ".png";
 }
 
 /*-----------------------音声セット-----------------------*/
+
 var v_text = new Array();
 for(i=0;i<=5;i++){
   v_text[i] = new Audio();

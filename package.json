@@ -17,6 +17,11 @@
   "author": "MakTak",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^1.4.5"
+    "electron": "^1.4.5",
+    "electron-packager": "*",
+    "path": "~0.12.7",
+    "url": "~0.11.0",
+    "twitter": "*",
+    "node-twitter-api": "*"
   }
 }

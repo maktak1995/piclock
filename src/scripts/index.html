@@ -5,15 +5,13 @@
     <link href="./piclock.css" rel="stylesheet">
     <title>piclock</title>
 </head>
-<body>
-  <div id="textbox">
-    <div id="digital_clock"><!-- ここに時刻が入る --></div>
-    <img id="fukidashi" src="../img/fukidashi.png" border="0" alt="">
-    <div id="yukarin_serif"><!-- ここにセリフが入る --></div>
-  </div>
-  <img id="character" onclick="Click()" src="../img/character/main.png" border="0" alt="">
-  <script src="./input.js"></script>
+<body ng-app="app" ng-controller="RootCtrl as root">
+  <div id="digital_clock"><!-- ここに時刻が入る --></div>
+  <script src="./twitter.js"></script>
   <script src="./clock.js"></script>
+  <script src="./input.js"></script>
+  <img id="pict" onclick="Click()" src="../img/main.png" width="200" height="240" border="0" alt="">
+  <div id="yukarin_serif"><!-- ここにセリフが入る --></div>
   <script src="./avator.js"></script>
 </body>
 </html>

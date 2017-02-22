@@ -1,68 +1,30 @@
 @import url(http://fonts.googleapis.com/css?family=Iceland);
 @import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
-
 body {
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  background-image: url("../img/back.jpg");
-  background-repeat: no-repeat;
-  background-attachment:fixed;
-  background-size:cover;
-  -webkit-app-region: drag;
-  -webkit-user-select: none;
-}
-
-
-#character {
-  width:  48%;
-  height: auto;
-  position: relative;
-  float: right;
-  -webkit-app-region: drag;
-}
-
-#textbox {
-  position: relative;
-  text-align: left;
-  width: 50%;
-  float: left;
-  -webkit-app-region: drag;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(24, 24, 24, .5);
+    -webkit-app-region: drag;
+    -webkit-user-select: none;
 }
 
 #digital_clock {
-  font-family: "Iceland";
-  font-size: 25px;
-  line-height: 23px;
-  margin-top: 9px;
-  margin-left: 9px;
-  text-align: center;
-  color: #fff;
-  padding: 0;
-  border: 3px solid rgb(42, 42, 42);
-  background-color: rgba(24, 24, 24, .7);
-  box-shadow: 0 0 2px 2px #000 inset;
-  text-shadow: 1px 1px 3px #000;
-}
-
-#fukidashi{
-  width:  175px;
-  height: 145px;
-  margin-left: 5px;
-  margin-top: 20px;
-  position: absolute;
-  -webkit-app-region: drag;
+    font-family: "Iceland";
+    font-size: 25px;
+    line-height: 23px;
+    margin-top: 9px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 3px #000;
 }
 
 #yukarin_serif {
-  font-family: "Noto Sans Japanese";
-  font-size: 15px;
-  line-height: 20px;
-  margin-top: 50px;
-  margin-left: 9px;
-  color: #fff;
-  text-shadow: 1px 1px 3px #000;
-  text-align: center;
-  position: relative;
-  word-wrap: break-word;
+    font-family: "Noto Sans Japanese",serif;
+    font-size: 15px;
+    line-height: 20px;
+    margin-top: 9px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 3px #000;
 }

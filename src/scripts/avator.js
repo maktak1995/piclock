@@ -7,13 +7,15 @@ UPDATE:2016/11/5
 var cnt=0;//セリフ切り替え用グローバル変数
 var rnd;//click時のリアクション用変数
 
-serif();//セリフを表示
-Jihou();//時報の必要があるかチェック
+//serif();//セリフを表示
+//時報の必要があるかチェック
+//Jihou();
+
 /*-------picture functions-------*/
 
 //画像切り替え関数
 function changeIMG(num){
-  document.getElementById("character").src=img[num].src;
+  document.getElementById("pict").src=img[num].src;
 }
 
 /*-------voice functions--------*/
@@ -44,6 +46,7 @@ function playvoice(mode,num){
   else if (mode == 'zihou') v_zihou[num].play();
 }
 /*-------serif functions--------*/
+
 function serif () {
   var t2 = new Date(); //現在時刻を取得
   var hour2 = t2.getHours();
