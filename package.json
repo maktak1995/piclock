@@ -5,11 +5,9 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-
     "build": "npm run clean;npm run build:osx;npm run build:win",
     "build:osx": "npm run clean:osx;electron-packager . piclock --out=dist/osx --platform=darwin --arch=x64 --version=1.4.5 --icon=assets/appicon.icns",
     "build:win": "npm run clean:win;electron-packager . piclock --out=dist/win --platform=win32 --arch=ia32 --version=1.4.5 --icon=assets/appicon.ico",
-
     "clean": "rm -rf ./dist",
     "clean:osx": "rm -rf ./dist/osx",
     "clean:win": "rm -rf ./dist/win"
@@ -23,5 +21,9 @@
     "url": "~0.11.0",
     "twitter": "*",
     "node-twitter-api": "*"
+  },
+  "dependencies": {
+    "node-twitter-api": "^1.8.0",
+    "twitter": "^1.7.0"
   }
 }
