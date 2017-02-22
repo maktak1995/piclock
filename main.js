@@ -78,38 +78,37 @@ function twitteraouth () {
             twitteroauthwindow.close();
           });
 
-          client = new tw_client({
-                         consumer_key:        '74Ww7f88pRHLkmXYSKbqxO1xI',
-                         consumer_secret:     'f6tpMmCwxYXtl7Qn6eMWXVviOHOQLHVp1pdivIhQ4pNw6SalPr',
-                         access_token_key:    twitter_accessToken,
-                         access_token_secret: twitter_accessTokenSecret,
-                      });
+          client = tw_client({
+                      consumer_key:        '74Ww7f88pRHLkmXYSKbqxO1xI',
+                      consumer_secret:     'f6tpMmCwxYXtl7Qn6eMWXVviOHOQLHVp1pdivIhQ4pNw6SalPr',
+                      access_token_key:    twitter_accessToken,
+                      access_token_secret: twitter_accessTokenSecret,
+                    });
         });
       }
       event.preventDefault();
     });
     twitteroauthwindow.loadURL(url);
   });
-  mentionget();
 }
 
 function mentionget(){
   if(client != null){
     client.get('statuses/mentions_timeline', (error, tweet, response) => {
       var mention;
-      if(!error){mention = tweet[0]["text"];}
-      else{mention = null}
+      mention = tweet[0]["text"];
       ipcMain.once('asynchronous-message', (event, arg) => {
         event.sender.send('asynchronous-reply', mention);
       });
     });
   }
-  setTimeout(mentionget, 6000);
+  setTimeout(mentionget, 15000);
 }
 
 /*---------Main process----------*/
 app.on('ready', () => {
   twitteraouth();
+  mentionget();
   createWindow();
 });
 
