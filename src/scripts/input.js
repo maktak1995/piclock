@@ -17,7 +17,7 @@ for(i=1;i<=10;i++){
 /*-----------------------音声セット-----------------------*/
 
 var v_text = new Array();
-for(i=0;i<=5;i++){
+for(i=0;i<=6;i++){
   v_text[i] = new Audio();
   v_text[i].src = "../voice/text/text" + String(i) + ".wav";
 }
@@ -42,6 +42,7 @@ text[2] = '今何時？上見てくださいよ。';//sub6
 text[3] = 'ゲームとかしません？';//sub5
 text[4] = '忙しそうですね。';//sub10
 text[5] = 'コーヒーでもいかがです?';//sub1
+text[6] = 'あなたのお友達からメンションですよ。';//mention_tweet
 
 var zihou = new Array(); //時報
 zihou[0] = '0時です。日付変わりましたよ。もう寝たらいかがです?';//sub3

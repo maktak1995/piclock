@@ -4,13 +4,16 @@ ABOUT:set the act of character
 AUTHER:MakTak
 UPDATE:2016/11/5
 --*/
+const {ipcRenderer} = require('electron');
+
 var cnt=0;//セリフ切り替え用グローバル変数
 var rnd;//click時のリアクション用変数
+let message = null;
 
-//serif();//セリフを表示
+serif();//セリフを表示
 //時報の必要があるかチェック
-//Jihou();
-
+Jihou();
+getMention();
 /*-------picture functions-------*/
 
 //画像切り替え関数
@@ -113,4 +116,22 @@ function Jihou(){
   // 次の「0ミリ秒」に実行されるよう、次の描画処理を予約
   var delay = 1000 - new Date().getMilliseconds();
   setTimeout(Jihou, delay);
+}
+
+
+/*-------twitter functions-------*/
+function getMention() {
+  ipcRenderer.once('asynchronous-reply', (event, arg) => {
+    if(message != null){
+      if(message != arg){
+          document.getElementById("yukarin_serif").innerHTML = text[6];
+          changeIMG(5);
+          playvoice('text',6);
+      }
+    }
+    message = arg;
+  });
+  ipcRenderer.send('asynchronous-message', 'ping');
+  var delay = 1000 - new Date().getMilliseconds();
+  setTimeout(getMention, delay);
 }
