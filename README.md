@@ -2,7 +2,8 @@
 * **Now,this branch is for development.**
 * This app is made for practice the electron.
 * Yukarin(Yukari Yuduki) talk to you with characters(japanese only now. sorry!).
-* Yukarin also tell you the time.
+* Yukarin tells you the time.
+* Yukarin tells you coming the mention tweet for you.
 * I use 山栗鼠's illust.(http://seiga.nicovideo.jp/seiga/im5342445)
 
 ##To use
