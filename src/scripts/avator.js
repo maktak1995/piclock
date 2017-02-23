@@ -120,9 +120,9 @@ function Jihou(){
 
 
 /*-------twitter functions-------*/
+
 function getMention() {
-  ipcRenderer.send('asynchronous-message', 'ping');
-  ipcRenderer.once('asynchronous-reply', (event, arg) => {
+  ipcRenderer.on('asynchronous-reply', (event, arg) => {
     if(message != null){
       if(message != arg){
           document.getElementById("yukarin_serif").innerHTML = text[6];
@@ -132,5 +132,5 @@ function getMention() {
     }
     message = arg;
   });
-  setTimeout(getMention, 5000);
+  ipcRenderer.send('asynchronous-message', 'ping');
 }
