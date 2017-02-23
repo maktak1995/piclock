@@ -94,11 +94,9 @@ function twitteraouth () {
 
 function mentionget(){
   if(client != null){
-    client.get('statuses/mentions_timeline', (error, tweet, response) => {
-      var mention;
-      mention = tweet[0]["text"];
-      ipcMain.once('asynchronous-message', (event, arg) => {
-        event.sender.send('asynchronous-reply', mention);
+    ipcMain.once('asynchronous-message', (event, arg) => {
+      client.get('statuses/mentions_timeline', (error, tweet, response) => {
+        if(!error) event.sender.send('asynchronous-reply', tweet[0]["text"]);
       });
     });
   }
