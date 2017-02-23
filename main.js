@@ -26,7 +26,7 @@ function createWindow () {
   }));
 
   mainWindow.on('closed', () => {
-    mainWindow = null
+    mainWindow = null;
   });
 
   tray = new Tray(path.join(__dirname, 'assets', 'appicon16.png'));
@@ -111,13 +111,13 @@ app.on('ready', () => {
 });
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
+  if (process.platform != 'darwin') {
     app.quit();
   }
 });
 
 app.on('activate', () => {
-  if (mainWindow === null) {
+  if (mainWindow == null) {
     createWindow();
   }
 });

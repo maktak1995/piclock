@@ -25,8 +25,8 @@ Or if you use from releaced package, replace images in /character.
 
 ---
 
-* Version:0.4.0  
-* Update:2017/2/22
-  - Add mention tweet
+* Version:0.4.1  
+* Update:2017/2/23
+  - Fixing little
 * Auther:MakTak  
 * This app follow MIT licence.  
