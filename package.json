@@ -17,10 +17,10 @@
   "devDependencies": {
     "electron": "^1.4.5",
     "electron-packager": "*",
+    "node-twitter-api": "*",
     "path": "~0.12.7",
-    "url": "~0.11.0",
     "twitter": "*",
-    "node-twitter-api": "*"
+    "url": "~0.11.0"
   },
   "dependencies": {
     "node-twitter-api": "^1.8.0",
