@@ -121,6 +121,7 @@ function Jihou(){
 
 /*-------twitter functions-------*/
 function getMention() {
+  ipcRenderer.send('asynchronous-message', 'ping');
   ipcRenderer.once('asynchronous-reply', (event, arg) => {
     if(message != null){
       if(message != arg){
@@ -131,7 +132,5 @@ function getMention() {
     }
     message = arg;
   });
-  ipcRenderer.send('asynchronous-message', 'ping');
-  var delay = 1000 - new Date().getMilliseconds();
-  setTimeout(getMention, delay);
+  setTimeout(getMention, 5000);
 }

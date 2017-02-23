@@ -96,7 +96,7 @@ function mentionget(){
   if(client != null){
     ipcMain.on('asynchronous-message', (event, arg) => {
       client.get('statuses/mentions_timeline', (error, tweet, response) => {
-        if(!error) event.sender.send('asynchronous-reply', tweet[0]["text"]);
+        event.sender.send('asynchronous-reply', tweet[0]["text"]);
       });
     });
   }
