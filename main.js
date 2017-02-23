@@ -92,21 +92,21 @@ function twitteraouth () {
   });
 }
 
-function mentionget(){
-  if(client != null){
-    ipcMain.once('asynchronous-message', (event, arg) => {
-      client.get('statuses/mentions_timeline', (error, tweet, response) => {
-        if(!error) event.sender.send('asynchronous-reply', tweet[0]["text"]);
-      });
-    });
-  }
-  setTimeout(mentionget, 8000);
-}
+let mentionText
+ipcMain.on('mention', (event, arg) => {
+  if (client == null) return
+
+  client.get('statuses/mentions_timeline', (error, tweet, response) => {
+    if (!error && mentionText != tweet[0]['text']) {
+      mentionText = tweet[0]['text']
+      event.sender.send('mention', mentionText)
+    }
+  })
+})
 
 /*---------Main process----------*/
 app.on('ready', () => {
   twitteraouth();
-  mentionget();
   createWindow();
 });
 
