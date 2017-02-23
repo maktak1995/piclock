@@ -54,7 +54,7 @@ function serif () {
   var t2 = new Date(); //現在時刻を取得
   var hour2 = t2.getHours();
   var minute2 = t2.getMinutes();
-  if(minute2 != 0){
+  if(minute2 !== 0){
     //セリフを更新
     updateSerifText();
   }
@@ -64,7 +64,7 @@ function serif () {
 function updateSerifText(){
   document.getElementById("yukarin_serif").innerHTML = text[cnt];
   playvoice('text',cnt);
-  if(cnt==0) changeIMG(0);
+  if(cnt===0) changeIMG(0);
   if(cnt==1) changeIMG(4);
   if(cnt==2) changeIMG(6);
   if(cnt==3) changeIMG(5);
@@ -85,7 +85,7 @@ function Click(){
   rnd = Math.floor(Math.random()*4);
   document.getElementById("yukarin_serif").innerHTML = reaction[rnd];
   playvoice('reaction',rnd);
-  if(rnd==0) changeIMG(6);
+  if(rnd===0) changeIMG(6);
   if(rnd==1) changeIMG(9);
   if(rnd==2) changeIMG(3);
   if(rnd==3) changeIMG(8);
@@ -98,12 +98,12 @@ function Jihou(){
   var minute = t.getMinutes();
   var second = t.getSeconds();
 
-  if(minute == 0 && second == 0){
+  if(minute === 0 && second === 0){
     document.getElementById("yukarin_serif").innerHTML = zihou[hour]; //時刻に応じたセリフをセット
     if(hour==1 || hour==14)              changeIMG(0);
     if(hour==2 || hour==5 || hour==22)   changeIMG(1);
     if(hour==8 || hour==12 || hour==15)  changeIMG(2);
-    if(hour==0)                          changeIMG(3);
+    if(hour===0)                          changeIMG(3);
     if(hour==21)                         changeIMG(4);
     if(hour==17 || hour==20)             changeIMG(5);
     if(hour==6 || hour==10)              changeIMG(6);
@@ -122,7 +122,7 @@ function Jihou(){
 /*-------twitter functions-------*/
 function getMention() {
   ipcRenderer.once('asynchronous-reply', (event, arg) => {
-    if(message != null){
+    if(message !== null){
       if(message != arg){
           document.getElementById("yukarin_serif").innerHTML = text[6];
           changeIMG(5);

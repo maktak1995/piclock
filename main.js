@@ -26,7 +26,7 @@ function createWindow () {
   }));
 
   mainWindow.on('closed', () => {
-    mainWindow = null
+    mainWindow = null;
   });
 
   tray = new Tray(path.join(__dirname, 'assets', 'appicon16.png'));
@@ -93,16 +93,13 @@ function twitteraouth () {
 }
 
 function mentionget(){
-  if(client != null){
-    client.get('statuses/mentions_timeline', (error, tweet, response) => {
-      var mention;
-      mention = tweet[0]["text"];
-      ipcMain.once('asynchronous-message', (event, arg) => {
-        event.sender.send('asynchronous-reply', mention);
+  if(client !== null){
+    ipcMain.on('asynchronous-message', (event, arg) => {
+      client.get('statuses/mentions_timeline', (error, tweet, response) => {
+        event.sender.send('asynchronous-reply', tweet[0]['text']);
       });
     });
   }
-  setTimeout(mentionget, 15000);
 }
 
 /*---------Main process----------*/
