@@ -37,6 +37,6 @@ function updateDigitalClock (d) {
     if(mm < 10) { mm = "0" + mm; }
     if(ss < 10) { ss = "0" + ss; }
 
-    var text = YY + '/' + MM + '/' + DD + ' (' + AA_str[AA] + ')<br>' + hh + ':' + mm + ':' + ss
+    var text = YY + '/' + MM + '/' + DD + ' (' + AA_str[AA] + ')<br>' + hh + ':' + mm + ':' + ss;
     document.getElementById("digital_clock").innerHTML = text;
 }
