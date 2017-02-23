@@ -100,7 +100,7 @@ function mentionget(){
       });
     });
   }
-  setTimeout(mentionget, 15000);
+  setTimeout(mentionget, 5000);
 }
 
 /*---------Main process----------*/

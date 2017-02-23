@@ -8,7 +8,7 @@ const {ipcRenderer} = require('electron');
 
 var cnt=0;//セリフ切り替え用グローバル変数
 var rnd;//click時のリアクション用変数
-let message = null;
+let message=null;
 
 serif();//セリフを表示
 //時報の必要があるかチェック
@@ -120,8 +120,9 @@ function Jihou(){
 
 
 /*-------twitter functions-------*/
+
 function getMention() {
-  ipcRenderer.once('asynchronous-reply', (event, arg) => {
+  ipcRenderer.on('asynchronous-reply', (event, arg) => {
     if(message != null){
       if(message != arg){
           document.getElementById("yukarin_serif").innerHTML = text[6];
@@ -132,6 +133,4 @@ function getMention() {
     message = arg;
   });
   ipcRenderer.send('asynchronous-message', 'ping');
-  var delay = 1000 - new Date().getMilliseconds();
-  setTimeout(getMention, delay);
 }
