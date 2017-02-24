@@ -120,14 +120,10 @@ function Jihou () {
 /* -------twitter functions------- */
 const {ipcRenderer} = require('electron')
 
-ipcRenderer.on('mention', (event, arg) => {
+ipcRenderer.on('mention', (event, mention) => {
   document.getElementById('yukarin_serif').innerHTML = text[6]
   changeIMG(5)
   playvoice('text', 6)
 })
 
-function requestGetMention () {
-  ipcRenderer.send('mention')
-  setTimeout(requestGetMention, 5000)
-}
-requestGetMention()
+ipcRenderer.send('ready')

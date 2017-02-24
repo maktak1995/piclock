@@ -7,7 +7,6 @@ const url = require('url')
 let mainWindow
 let tray
 let twitteroauthwindow
-let client
 
 /* ------------------Main function------------------- */
 function createWindow () {
@@ -56,59 +55,62 @@ function createWindow () {
 }
 
 /* -----------------Twitter function------------------ */
-const oauth = new Oauth({
-  consumerKey: '74Ww7f88pRHLkmXYSKbqxO1xI',
-  consumerSecret: 'f6tpMmCwxYXtl7Qn6eMWXVviOHOQLHVp1pdivIhQ4pNw6SalPr',
-  callback: 'http://127.0.0.1'
-})
 
-function twitteraouth () {
-  twitteroauthwindow = new BrowserWindow({width: 400,
+ipcMain.once('ready', (event, arg) => {
+  twitteroauthwindow = new BrowserWindow({
+    width: 400,
     height: 300,
-    webPreferences: {webSecurity: false}})
+    webPreferences: {webSecurity: false}
+  })
+
+  const oauth = new Oauth({
+    consumerKey: '74Ww7f88pRHLkmXYSKbqxO1xI',
+    consumerSecret: 'f6tpMmCwxYXtl7Qn6eMWXVviOHOQLHVp1pdivIhQ4pNw6SalPr',
+    callback: 'http://127.0.0.1'
+  })
+
   oauth.getRequestToken(function (error, requestToken, requestTokenSecret, results) {
     if (error) twitteroauthwindow.close()
-    var url = oauth.getAuthUrl(requestToken)
-    twitteroauthwindow.webContents.on('will-navigate', function (event, url) {
-      var matched = url.match(/\?oauth_token=([^&]*)&oauth_verifier=([^&]*)/)
-      if (matched) {
-        oauth.getAccessToken(requestToken, requestTokenSecret, matched[2], function (error, accessToken, accessTokenSecret, results) {
-          if (error) twitteroauthwindow.close()
-          var twitterAccessToken = accessToken
-          var twitterAccessTokenSecret = accessTokenSecret
-          oauth.verifyCredentials(twitterAccessToken, twitterAccessTokenSecret, {}, function (_, data, respons) {
-            twitteroauthwindow.close()
-          })
 
-          client = twClient({
-            consumer_key: '74Ww7f88pRHLkmXYSKbqxO1xI',
-            consumer_secret: 'f6tpMmCwxYXtl7Qn6eMWXVviOHOQLHVp1pdivIhQ4pNw6SalPr',
-            access_token_key: twitterAccessToken,
-            access_token_secret: twitterAccessTokenSecret
+    twitteroauthwindow.loadURL(oauth.getAuthUrl(requestToken))
+
+    twitteroauthwindow.webContents.on('will-navigate', function (_, url) {
+      const matched = url.match(/\?oauth_token=([^&]*)&oauth_verifier=([^&]*)/)
+
+      if (matched) {
+        oauth.getAccessToken(requestToken, requestTokenSecret, matched[2], (error, accessToken, accessTokenSecret, results) => {
+          if (error) twitteroauthwindow.close()
+
+          oauth.verifyCredentials(accessToken, accessTokenSecret, {}, (error, data, respons) => {
+            if (!error) {
+              const client = twClient({
+                consumer_key: '74Ww7f88pRHLkmXYSKbqxO1xI',
+                consumer_secret: 'f6tpMmCwxYXtl7Qn6eMWXVviOHOQLHVp1pdivIhQ4pNw6SalPr',
+                access_token_key: accessToken,
+                access_token_secret: accessTokenSecret
+              })
+
+              const stream = client.stream('statuses/filter', {track: `@${data.screen_name}`})
+
+              stream.on('data', function (data) {
+                event.sender.send('mention', data && data.text)
+              })
+
+              stream.on('error', function (error) {
+                throw error
+              })
+            }
+            twitteroauthwindow.close()
           })
         })
       }
       event.preventDefault()
     })
-    twitteroauthwindow.loadURL(url)
-  })
-}
-
-let mentionText
-ipcMain.on('mention', (event, arg) => {
-  if (client == null) return
-
-  client.get('statuses/mentions_timeline', (error, tweet, response) => {
-    if (!error && mentionText !== tweet[0]['text']) {
-      mentionText = tweet[0]['text']
-      event.sender.send('mention', mentionText)
-    }
   })
 })
 
 /* ---------Main process---------- */
 app.on('ready', () => {
-  twitteraouth()
   createWindow()
 })
 
