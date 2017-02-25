@@ -129,14 +129,14 @@ ipcRenderer.on('mention', (event, mention) => {
 ipcRenderer.send('ready')
 
 /* ----------------pomodoro function--------------- */
-let PomoID;
+let PomoID
 
 ipcRenderer.on('pomodoro', (event, message) => {
   document.getElementById('yukarin_serif').innerHTML = text[7]
   changeIMG(1)
   playvoice('text', 7)
-  clearTimeout(PomoID); //既に動いているタイマーを(あれば)停止しておく
-  PomoID=setTimeout(countPomodoro, 1500000) // 1500000ms = 25min
+  clearTimeout(PomoID) // 既に動いているタイマーを(あれば)停止しておく
+  PomoID = setTimeout(countPomodoro, 1500000) // 1500000ms = 25min
 })
 
 function countPomodoro () {
