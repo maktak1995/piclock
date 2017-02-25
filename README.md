@@ -25,8 +25,8 @@ Or if you use from releaced package, replace images in /character.
 
 ---
 
-* Version:0.4.1  
+* Version:0.4.2  
 * Update:2017/2/23
-  - Fixing little
+  - Add pomodoro timer
 * Auther:MakTak  
 * This app follow MIT licence.  

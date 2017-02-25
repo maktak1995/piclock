@@ -44,8 +44,8 @@ text[3] = 'ゲームとかしません？'// sub5
 text[4] = '忙しそうですね。'// sub10
 text[5] = 'コーヒーでもいかがです?'// sub1
 text[6] = 'あなたのお友達からメンションですよ。'// mention_tweet
-text[7] = 'ポモドーロタイマーをセットしました。'//set_pomodoro
-text[8] = '25分たちました！5分休憩しましょう！'//end_pomodoro
+text[7] = 'ポモドーロタイマーをセットしました。'// set_pomodoro
+text[8] = '25分たちました！5分休憩しましょう！'// end_pomodoro
 
 var jihou = [] // 時報
 jihou[0] = '0時です。日付変わりましたよ。もう寝たらいかがです?'// sub3
