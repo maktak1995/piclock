@@ -47,6 +47,14 @@ function createWindow () {
       click: (item) => {
         mainWindow.webContents.setAudioMuted(item.checked)
       }
+    },
+    {
+      label: 'Pomodoro',
+      accelerator: 'CmdOrCtrl+P',
+      type: 'normal',
+      click: () => {
+        mainWindow.webContents.send('pomodoro');
+      }
     }
   ])
 
@@ -55,6 +63,7 @@ function createWindow () {
 }
 
 /* -----------------Twitter function------------------ */
+
 
 ipcMain.once('ready', (event, arg) => {
   twitteroauthwindow = new BrowserWindow({
@@ -108,6 +117,7 @@ ipcMain.once('ready', (event, arg) => {
     })
   })
 })
+
 
 /* ---------Main process---------- */
 app.on('ready', () => {
