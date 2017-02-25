@@ -127,3 +127,18 @@ ipcRenderer.on('mention', (event, mention) => {
 })
 
 ipcRenderer.send('ready')
+
+
+/*----------------pomodoro function---------------*/
+ipcRenderer.on('pomodoro', (event, message) => {
+  document.getElementById("yukarin_serif").innerHTML = text[7]
+  changeIMG(1)
+  playvoice('text', 7)
+  setTimeout(countPomodoro, 1500000) //1500000ms = 25min
+})
+
+function countPomodoro(){
+    document.getElementById("yukarin_serif").innerHTML = text[8]
+    changeIMG(2)
+    playvoice('text', 8)
+}
