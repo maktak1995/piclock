@@ -2,16 +2,18 @@
 FILE :avator.js
 ABOUT:set the act of character
 AUTHER:MakTak
-UPDATE:2016/11/5
+UPDATE:2017/2/27
 -- */
 const {img, vText, vReaction, vJihou, text, reaction, jihou} = require('./input')
 
-var cnt = 0// セリフ切り替え用グローバル変数
-var rnd// click時のリアクション用変数
+let cnt = 0 // セリフ切り替え用グローバル変数
+let rnd // click時のリアクション用変数
+let SerifID
+let PomoID
 
-serif()// セリフを表示
-// 時報の必要があるかチェック
-Jihou()
+serif() // セリフを表示
+Jihou() // 時報の必要があるかチェック
+
 /* -------picture functions------- */
 
 // 画像切り替え関数
@@ -56,7 +58,7 @@ function serif () {
     // セリフを更新
     updateSerifText()
   }
-  setTimeout(serif, 30000)
+  SerifID = setTimeout(serif, 30000)
 }
 
 function updateSerifText () {
@@ -129,13 +131,13 @@ ipcRenderer.on('mention', (event, mention) => {
 ipcRenderer.send('ready')
 
 /* ----------------pomodoro function--------------- */
-let PomoID
 
 ipcRenderer.on('pomodoro', (event, message) => {
   document.getElementById('yukarin_serif').innerHTML = text[7]
   changeIMG(1)
   playvoice('text', 7)
   clearTimeout(PomoID) // 既に動いているタイマーを(あれば)停止しておく
+  clearTimeout(SerifID) // 作業中は静かにしていただく
   PomoID = setTimeout(countPomodoro, 1500000) // 1500000ms = 25min
 })
 
@@ -143,4 +145,5 @@ function countPomodoro () {
   document.getElementById('yukarin_serif').innerHTML = text[8]
   changeIMG(2)
   playvoice('text', 8)
+  SerifID = setTimeout(serif, 30000) // おしゃべりを再開していただく
 }

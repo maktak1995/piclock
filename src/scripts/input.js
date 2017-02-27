@@ -2,7 +2,7 @@
 FILE :input.js
 ABOUT:input serif, picture, voice
 AUTHER:MakTak
-UPDATE:2016/11/5
+UPDATE:2017/2/25
 -- */
 
 /* -----------------------画像セット----------------------- */
