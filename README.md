@@ -4,9 +4,8 @@
 * Yukarin(Yukari Yuduki) talk to you with characters(japanese only now. sorry!).
 * Yukarin tells you the time.
 * Yukarin tells you coming the mention tweet for you.
-* I use 山栗鼠's illust.(http://seiga.nicovideo.jp/seiga/im5342445)
-
-##To use
+* I use [山栗鼠](http://seiga.nicovideo.jp/seiga/im5342445)'s illust.
+## To use
 To clone and run this repository you'll need [Git](https://git-scm.com/) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com/)) installed on your computer. From your command line:
 
 ```bash
