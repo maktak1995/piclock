@@ -21,7 +21,7 @@ npm start
 
 If you want to change character, please replace images in /src/img/character.
 Or if you use from releaced package, replace images in /character.
-### Reference materials
+### Thanks
 * [30分で出来る、JavaScript (Electron) でデスクトップアプリを作って配布するまで](http://qiita.com/nyanchu/items/15d514d9b9f87e5c0a29)
 * [Electronでデスクトップウィジェットを作るまで](http://qiita.com/SallyAcolyte/items/94ed26ab62b8b32b1b2c)
 * [ElectronでのOAuth](http://qiita.com/Quramy/items/fc79cad92bb287478076)
