@@ -27,8 +27,8 @@ Or if you use from releaced package, replace images in /character.
 * [ElectronでのOAuth](http://qiita.com/Quramy/items/fc79cad92bb287478076)
 ---
 
-* Version:0.4.2  
-* Update:2017/2/25
-  - Add pomodoro timer
+* Version:0.4.5  
+* Update:2017/7/10
+  - Add Todo Check List
 * Auther:MakTak  
 * This app follow MIT licence.  

@@ -18,7 +18,7 @@ for (i = 1; i <= 10; i++) {
 /* -----------------------音声セット----------------------- */
 
 var vText = []
-for (i = 0; i <= 8; i++) {
+for (i = 0; i <= 10; i++) {
   vText[i] = document.createElement('audio')
   vText[i].src = '../voice/text/text' + String(i) + '.wav'
 }
@@ -46,6 +46,8 @@ text[5] = 'コーヒーでもいかがです?'// sub1
 text[6] = 'あなたのお友達からメンションですよ。'// mention_tweet
 text[7] = 'ポモドーロタイマーをセットしました。'// set_pomodoro
 text[8] = '25分たちました！5分休憩しましょう！'// end_pomodoro
+text[9] = '今日は何をするんです？'//set_todoList
+text[10] = '現在のリストはこんなかんじですね。'//show_todoList
 
 var jihou = [] // 時報
 jihou[0] = '0時です。日付変わりましたよ。もう寝たらいかがです?'// sub3

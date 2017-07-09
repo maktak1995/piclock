@@ -5,11 +5,16 @@ AUTHER:MakTak
 UPDATE:2017/2/27
 -- */
 const {img, vText, vReaction, vJihou, text, reaction, jihou} = require('./input')
+const remote = require('electron').remote
+const path = require('path')
+const url = require('url')
+const BrowserWindow = remote.BrowserWindow
 
 let cnt = 0 // セリフ切り替え用グローバル変数
 let rnd // click時のリアクション用変数
 let SerifID
 let PomoID
+let TodoID
 
 serif() // セリフを表示
 Jihou() // 時報の必要があるかチェック
@@ -146,4 +151,40 @@ function countPomodoro () {
   changeIMG(2)
   playvoice('text', 8)
   SerifID = setTimeout(serif, 30000) // おしゃべりを再開していただく
+}
+
+/* ----------------todolistfunction--------------- */
+
+ipcRenderer.on('todolist', (event, message) => {
+  console.log(message[1])
+  if(message[0] == false && TodoID != null){
+    BrowserWindow.fromId(TodoID).hide()
+  }else if(message[0] == true && TodoID == null){
+    document.getElementById('yukarin_serif').innerHTML = text[9]
+    changeIMG(1)
+    playvoice('text', 9)
+    createWindow(message[1])
+  }else if(message[0] == true && TodoID != null){
+    document.getElementById('yukarin_serif').innerHTML = text[10]
+    changeIMG(9)
+    playvoice('text', 10)
+    BrowserWindow.fromId(TodoID).setPosition(message[1][0]-251, message[1][1])
+    BrowserWindow.fromId(TodoID).show()
+  }
+})
+
+function createWindow (pos) {
+  let win = new BrowserWindow({ width: 250,
+                                height: 300,
+                                transparent: true,
+                                hasShadow: false,
+                                frame: false,
+                                webPreferences: {webSecurity: false} })
+  win.loadURL(url.format({
+    pathname: path.join(__dirname, 'todoList.html'),
+    protocol: 'file:',
+    slashes: true
+  }))
+  win.setPosition(pos[0]-251, pos[1])
+  TodoID = win.id
 }

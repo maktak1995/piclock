@@ -15,6 +15,7 @@ function createWindow () {
     height: 360,
     resizable: false,
     transparent: true,
+    hasShadow: false,
     frame: false
   })
 
@@ -54,6 +55,14 @@ function createWindow () {
       type: 'normal',
       click: () => {
         mainWindow.webContents.send('pomodoro')
+      }
+    },
+    {
+      label: 'Todolist',
+      accelerator: 'CmdOrCtrl+T',
+      type: 'checkbox',
+      click: (item) => {
+        mainWindow.webContents.send('todolist', [item.checked, mainWindow.getPosition()])
       }
     }
   ])
