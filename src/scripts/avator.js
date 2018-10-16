@@ -5,10 +5,9 @@ AUTHER:MakTak
 UPDATE:2017/2/27
 -- */
 const {img, vText, vReaction, vJihou, text, reaction, jihou} = require('./input')
-const remote = require('electron').remote
+const {ipcRenderer} = require('electron')
 const path = require('path')
 const url = require('url')
-const BrowserWindow = remote.BrowserWindow
 
 let cnt = 0 // セリフ切り替え用グローバル変数
 let rnd // click時のリアクション用変数
@@ -124,17 +123,6 @@ function Jihou () {
   setTimeout(Jihou, delay)
 }
 
-/* -------twitter functions------- */
-const {ipcRenderer} = require('electron')
-
-ipcRenderer.on('mention', (event, mention) => {
-  document.getElementById('yukarin_serif').innerHTML = text[6]
-  changeIMG(5)
-  playvoice('text', 6)
-})
-
-ipcRenderer.send('ready')
-
 /* ----------------pomodoro function--------------- */
 
 ipcRenderer.on('pomodoro', (event, message) => {
@@ -152,26 +140,6 @@ function countPomodoro () {
   playvoice('text', 8)
   SerifID = setTimeout(serif, 30000) // おしゃべりを再開していただく
 }
-
-/* ----------------todolistfunction--------------- */
-
-ipcRenderer.on('todolist', (event, message) => {
-  console.log(message[1])
-  if(message[0] == false && TodoID != null){
-    BrowserWindow.fromId(TodoID).hide()
-  }else if(message[0] == true && TodoID == null){
-    document.getElementById('yukarin_serif').innerHTML = text[9]
-    changeIMG(1)
-    playvoice('text', 9)
-    createWindow(message[1])
-  }else if(message[0] == true && TodoID != null){
-    document.getElementById('yukarin_serif').innerHTML = text[10]
-    changeIMG(9)
-    playvoice('text', 10)
-    BrowserWindow.fromId(TodoID).setPosition(message[1][0]-251, message[1][1])
-    BrowserWindow.fromId(TodoID).show()
-  }
-})
 
 function createWindow (pos) {
   let win = new BrowserWindow({ width: 250,
